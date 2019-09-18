@@ -79,6 +79,14 @@ class Streamlabs extends OAuth2 {
 
     return getCredentials();
   }
+  
+    editCredentials(accessToken) {
+    setCredentials({
+      ...super.getCredentials().refreshToken,
+      ...super.getCredentials().expiresIn,
+      accessToken: accessToken
+    })
+  }
 
   credentials() {
     return getCredentials();
